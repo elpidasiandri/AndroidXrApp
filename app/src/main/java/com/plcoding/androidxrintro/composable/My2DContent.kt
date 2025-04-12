@@ -20,7 +20,7 @@ fun My2DContent(onRequestFullSpaceMode: () -> Unit) {
         Box(
             modifier = Modifier.fillMaxSize(),
         ) {
-            ImageGallery(
+            SlidesGallery(
                 modifier = Modifier
                     .fillMaxSize()
             )

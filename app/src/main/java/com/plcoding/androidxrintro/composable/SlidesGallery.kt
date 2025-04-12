@@ -1,6 +1,5 @@
 package com.plcoding.androidxrintro.composable
 
-import android.content.Context
 import android.media.MediaPlayer
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -37,12 +36,10 @@ import coil.compose.rememberAsyncImagePainter
 import coil.decode.GifDecoder
 import coil.ImageLoader
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.setValue
 
 @Composable
-fun ImageGallery(modifier: Modifier = Modifier) {
+fun SlidesGallery(modifier: Modifier = Modifier) {
     val context = LocalContext.current
     val imageLoader = ImageLoader.Builder(context)
         .components {
@@ -50,13 +47,8 @@ fun ImageGallery(modifier: Modifier = Modifier) {
         }
         .build()
 
-    val gifPainter = rememberAsyncImagePainter(
-        model = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGh1cHF1NGhwa3E2dnU0YTh0dmd3ZzBqb2ZqY2Y3bHkzd3IzNHZpNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/98uBZTzlXMhkk/giphy.gif",
-        imageLoader = imageLoader
-    )
-
     val pictures = listOf(
-        R.drawable.android_person,
+        "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGh1cHF1NGhwa3E2dnU0YTh0dmd3ZzBqb2ZqY2Y3bHkzd3IzNHZpNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/98uBZTzlXMhkk/giphy.gif",
         R.drawable.activity_lifecycle_info,
         R.drawable.on_create,
         R.drawable.on_start,
@@ -85,7 +77,8 @@ fun ImageGallery(modifier: Modifier = Modifier) {
         mediaPlayer?.release()
         mediaPlayer = null
 
-        val soundRes = when (pictures[pagerState.currentPage]) {
+        val current = pictures[pagerState.currentPage]
+        val soundRes = when (current) {
             R.drawable.activity_lifecycle_info -> R.raw.intro
             R.drawable.on_create -> R.raw.oncreate
             R.drawable.on_start -> R.raw.onstart
@@ -109,35 +102,37 @@ fun ImageGallery(modifier: Modifier = Modifier) {
         }
     }
 
-    Box(
-        modifier = modifier.fillMaxSize()
-    ) {
-        Image(
-            painter = gifPainter,
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxSize()
-        )
-
+    Box(modifier = modifier.size(550.dp).background(Color.Black)) {
         Box(
             modifier = Modifier
-                .size(400.dp)
                 .align(Alignment.Center)
         ) {
             HorizontalPager(
                 state = pagerState,
                 modifier = Modifier
-                    .width(290.dp)
-                    .height(350.dp)
+                    .width(400.dp)
+                    .height(550.dp)
                     .align(Alignment.Center)
             ) { page ->
-                Image(
-                    painter = painterResource(pictures[page]),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .fillMaxSize(),
-                    contentScale = ContentScale.Crop
-                )
+                val current = pictures[page]
+                if (current is String) {
+                    Image(
+                        painter = rememberAsyncImagePainter(
+                            model = current,
+                            imageLoader = imageLoader
+                        ),
+                        contentDescription = null,
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop
+                    )
+                } else if (current is Int) {
+                    Image(
+                        painter = painterResource(current),
+                        contentDescription = null,
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop
+                    )
+                }
             }
 
             IconButton(

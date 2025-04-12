@@ -25,13 +25,13 @@ import androidx.xr.compose.subspace.layout.width
 fun MySpatialContent(onRequestHomeSpaceMode: () -> Unit) {
     SpatialPanel(
         modifier = SubspaceModifier
-            .width(1280.dp)
-            .height(800.dp)
+            .width(900.dp)
+            .height(900.dp)
             .resizable()
             .movable()
     ) {
         Surface {
-            ImageGallery(
+            SlidesGallery(
                 modifier = Modifier
                     .fillMaxSize()
             )
