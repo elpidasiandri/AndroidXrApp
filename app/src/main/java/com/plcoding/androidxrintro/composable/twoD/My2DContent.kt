@@ -1,4 +1,4 @@
-package com.plcoding.androidxrintro.composable
+package com.plcoding.androidxrintro.composable.twoD
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
@@ -11,6 +11,8 @@ import androidx.compose.ui.unit.dp
 import androidx.xr.compose.platform.LocalHasXrSpatialFeature
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import com.plcoding.androidxrintro.composable.FullSpaceModeIconButton
+import com.plcoding.androidxrintro.composable.threeD.SlidesGallery
 import com.plcoding.androidxrintro.ui.theme.AndroidXRIntroTheme
 
 @SuppressLint("RestrictedApi")

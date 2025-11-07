@@ -19,6 +19,7 @@ import androidx.xr.compose.subspace.layout.height
 import androidx.xr.compose.subspace.layout.movable
 import androidx.xr.compose.subspace.layout.resizable
 import androidx.xr.compose.subspace.layout.width
+import com.plcoding.androidxrintro.composable.threeD.SlidesGallery
 
 @SuppressLint("RestrictedApi")
 @Composable
