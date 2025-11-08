@@ -20,3 +20,6 @@
 - Upon launching the application:
 - Navigate through the XR presentation to explore different stages of the Android Activity Lifecycle.
 - Each slide provides visual and auditory information to facilitate learning.
+
+  
+**Computer Vision in Extended Reality** presented at the 2025 International Conference on Software, Telecommunications and Computer Networks (𝗦𝗼𝗳𝘁𝗖𝗢𝗠) and published by 𝗜𝗘𝗘𝗘 https://ieeexplore.ieee.org/abstract/document/11197395
