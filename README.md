@@ -1,4 +1,4 @@
-
+Computer Vision in Extended Reality | IEEE SoftCOM 2025 | DOI 10.23919/SoftCOM66362.2025.11197395 -> https://www.researchgate.net/publication/397932146_Computer_Vision_in_Extended_Reality
 ## TechAndroidXrApp
 
 > AndroidXrApp is an experimental Android application developed as part of a study exploring the integration of computer vision techniques within Extended Reality (XR) environments. The application serves as an interactive educational tool, demonstrating the Android Activity Lifecycle through immersive XR presentations.
